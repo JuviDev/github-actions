@@ -11,6 +11,9 @@ jobs:
       region: us-west-2
       account: 123456789012
 
+      username: ${{secrets.USERNAME}}
+      password: ${{secrets.PASSWORD}}
+
     runs-on: ubuntu-latest
 
     steps:
@@ -18,11 +21,13 @@ jobs:
         run: echo "Hello, World!"
 
       - name: "Display environment variables"
-        # if: ${{ env.platform == 'azure' }}
         run: |
           echo "Platform: ${{env.platform}} "
           echo "Region: ${{env.region}} "
           echo "Account: ${{env.account}}"
+
+          echo "Username: ${{env.username}}"
+          echo "Password: ${{env.password}}"
 
       - name: "Displaying default variables"
         run: |
