@@ -18,7 +18,7 @@ jobs:
         run: echo "Hello, World!"
 
       - name: "Display environment variables"
-        if: ${{ env.platform == 'azure' }}
+        # if: ${{ env.platform == 'azure' }}
         run: |
           echo "Platform: ${{env.platform}} "
           echo "Region: ${{env.region}} "
@@ -27,3 +27,5 @@ jobs:
       - name: "Displaying default variables"
         run: |
           echo "Event: ${{toJson(github.event)}}"
+          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
