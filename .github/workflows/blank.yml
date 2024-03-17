@@ -18,6 +18,7 @@ jobs:
         run: echo "Hello, World!"
 
       - name: "Display environment variables"
+        if: ${{ env.platform == 'azure' }}
         run: |
           echo "Platform: ${{env.platform}} "
           echo "Region: ${{env.region}} "
